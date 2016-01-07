@@ -8,7 +8,7 @@ namespace NewsStand
     /// <summary>
     /// Provides methods to generate primes
     /// </summary>
-    class Primes
+    class PrimesGenerator
     {
         /// <summary>
         /// Generate prime numbers up to the specified limit using trial division
@@ -158,6 +158,28 @@ namespace NewsStand
             }
 
             return mersenePrimes;
+        }
+
+        /// <summary>
+        /// Primality test to checks wether a given number is a prime number or a composite number
+        /// </summary>
+        /// <param name="number">Nuber to be checked for primality</param>
+        /// <returns>true if prime, false if composite</returns>
+        public bool TrialDivisionPrimalityTest(int number)
+        {
+            if (number == 2)
+                return true;
+
+            if (number == 0 || number == 1 || number % 2 == 0)
+                return false;
+
+            for (int i = 3; i < number; i += 2)
+            {
+                if (number % i == 0)
+                    return false;
+            }
+
+            return true;
         }
 
         /// <summary>
